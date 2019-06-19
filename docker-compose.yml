@@ -5,15 +5,13 @@ services:
   app:
     build: .
     command: "uwsgi --ini ./uwsgi.ini"
-    depends_on:
-      - nginx
     networks:
       - my-bridge
 
   nginx:
     image: nginx
     volumes:
-      - ./ngnix.conf:/etc/ngnix/nginx.conf
+      - /Users/louis/PycharmProjects/celery-demo/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
     networks:
