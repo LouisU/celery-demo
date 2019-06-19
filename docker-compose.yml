@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  app:
+    build: .
+    command: "uwsgi --ini ./uwsgi.ini"
+    depends_on:
+      - nginx
+    networks:
+      - my-bridge
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./ngnix.conf:/etc/ngnix/nginx.conf
+    ports:
+      - "80:80"
+    networks:
+      - my-bridge
+
+
+networks:
+  my-bridge:
+    driver: bridge
