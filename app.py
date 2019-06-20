@@ -1,6 +1,14 @@
 from flask import Flask
+from redis import Redis
 
 app = Flask(__name__)
+rs = Redis(host='redis', port=6379, db=0)
+
+
+@app.route('/name')
+def add_name():
+    rs.hset('name', 'louis', 'a')
+    return "set name louis a"
 
 
 @app.route('/')
@@ -11,6 +19,7 @@ def hello_world():
 @app.route('/louis')
 def hello_louis():
     return 'Hello Louis!'
+
 
 @app.route('/test')
 def test():

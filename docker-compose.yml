@@ -17,6 +17,11 @@ services:
     networks:
       - my-bridge
 
+  redis:
+    image: redis
+    networks:
+      - my-bridge
+
 
 networks:
   my-bridge:
