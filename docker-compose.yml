@@ -22,6 +22,14 @@ services:
     networks:
       - my-bridge
 
+  rabbitmq:
+    image: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      RABBITMQ_DEFAULT_VHOST: my_vhost
+    networks:
+      - my-bridge
 
 networks:
   my-bridge:

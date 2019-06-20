@@ -1,5 +1,7 @@
 from flask import Flask
 from redis import Redis
+from nedcelery import tasks
+
 
 app = Flask(__name__)
 rs = Redis(host='redis', port=6379, db=0)
@@ -8,6 +10,7 @@ rs = Redis(host='redis', port=6379, db=0)
 @app.route('/name')
 def add_name():
     rs.hset('name', 'louis', 'a')
+    tasks.add.delay(2, 9)
     return "set name louis a"
 
 
