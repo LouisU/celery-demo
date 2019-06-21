@@ -1,0 +1,2487 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 12:10:08 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:54175 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fab71e02120
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fab71e02120 pid: 95441 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 95441)
+spawned uWSGI worker 1 (pid: 95446, cores: 1)
+spawned uWSGI worker 2 (pid: 95447, cores: 1)
+spawned uWSGI worker 3 (pid: 95448, cores: 1)
+spawned uWSGI worker 4 (pid: 95449, cores: 1)
+spawned uWSGI http 1 (pid: 95450)
+[2019-06-21 12:10:20,203] ERROR in app: Exception on /taska [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 29, in x_add_y
+    task = tasks.add_result.apply_async(x=6, y=9)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: add_result() missing 2 required positional arguments: 'x' and 'y'
+[pid: 95449|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:10:20 2019] GET /taska => generated 290 bytes in 19 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+[2019-06-21 12:10:28,513] ERROR in app: Exception on /taska [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 29, in x_add_y
+    task = tasks.add_result.apply_async(x=6, y=9)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: add_result() missing 2 required positional arguments: 'x' and 'y'
+[pid: 95448|app: 0|req: 1/2] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:10:28 2019] GET /taska => generated 290 bytes in 18 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[2019-06-21 12:10:30,216] ERROR in app: Exception on /taska [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 29, in x_add_y
+    task = tasks.add_result.apply_async(x=6, y=9)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: add_result() missing 2 required positional arguments: 'x' and 'y'
+[pid: 95448|app: 0|req: 2/3] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:10:30 2019] GET /taska => generated 290 bytes in 1 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 95450)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 12:11:33 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:54190 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fa82dd07290
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fa82dd07290 pid: 95489 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 95489)
+spawned uWSGI worker 1 (pid: 95494, cores: 1)
+spawned uWSGI worker 2 (pid: 95495, cores: 1)
+spawned uWSGI worker 3 (pid: 95496, cores: 1)
+spawned uWSGI worker 4 (pid: 95497, cores: 1)
+spawned uWSGI http 1 (pid: 95498)
+[2019-06-21 12:11:43,507] ERROR in app: Exception on /taska [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 29, in x_add_y
+    task = tasks.add_result.apply_async(x=6, y=9)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: add_result() missing 2 required positional arguments: 'x' and 'y'
+[pid: 95497|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:11:43 2019] GET /taska => generated 290 bytes in 22 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 95498)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 12:12:50 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:54198 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fe3e2502ba0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fe3e2502ba0 pid: 95619 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 95619)
+spawned uWSGI worker 1 (pid: 95624, cores: 1)
+spawned uWSGI worker 2 (pid: 95625, cores: 1)
+spawned uWSGI worker 3 (pid: 95626, cores: 1)
+spawned uWSGI worker 4 (pid: 95627, cores: 1)
+spawned uWSGI http 1 (pid: 95628)
+[pid: 95625|app: 0|req: 1/1] 127.0.0.1 () {36 vars in 670 bytes} [Fri Jun 21 12:13:41 2019] GET / => generated 12 bytes in 7 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 95628)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 12:15:38 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:54327 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f8912d03910
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f8912d03910 pid: 95686 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 95686)
+spawned uWSGI worker 1 (pid: 95691, cores: 1)
+spawned uWSGI worker 2 (pid: 95692, cores: 1)
+spawned uWSGI worker 3 (pid: 95693, cores: 1)
+spawned uWSGI worker 4 (pid: 95694, cores: 1)
+spawned uWSGI http 1 (pid: 95695)
+[pid: 95694|app: 0|req: 1/1] 127.0.0.1 () {36 vars in 670 bytes} [Fri Jun 21 12:16:25 2019] GET / => generated 12 bytes in 9 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 95694|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 680 bytes} [Fri Jun 21 12:16:28 2019] GET /louis => generated 12 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 79 bytes (2 switches on core 0)
+[pid: 95694|app: 0|req: 3/3] 127.0.0.1 () {36 vars in 678 bytes} [Fri Jun 21 12:16:32 2019] GET /test => generated 14 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 79 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 95695)
+worker 3 buried after 0 seconds
+worker 2 buried after 0 seconds
+worker 4 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 12:17:10 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:54383 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f8f6a509430
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f8f6a509430 pid: 95744 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 95744)
+spawned uWSGI worker 1 (pid: 95749, cores: 1)
+spawned uWSGI worker 2 (pid: 95750, cores: 1)
+spawned uWSGI worker 3 (pid: 95751, cores: 1)
+spawned uWSGI worker 4 (pid: 95752, cores: 1)
+spawned uWSGI http 1 (pid: 95753)
+[pid: 95751|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 709 bytes} [Fri Jun 21 12:17:13 2019] GET /test => generated 14 bytes in 6 msecs (HTTP/1.1 200) 2 headers in 79 bytes (2 switches on core 0)
+[2019-06-21 12:17:21,525] ERROR in app: Exception on /taskn [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 492, in connect
+    sock = self._connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 520, in _connect
+    socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 22, in add_name
+    rs.hset('name', 'louis', 'a')
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 2674, in hset
+    return self.execute_command('HSET', name, key, value)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 772, in execute_command
+    connection = pool.get_connection(command_name, **options)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 994, in get_connection
+    connection.connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 497, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 8 connecting to redis:6379. nodename nor servname provided, or not known.
+[pid: 95751|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 680 bytes} [Fri Jun 21 12:17:21 2019] GET /taskn => generated 290 bytes in 72 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 95751|app: 0|req: 3/3] 127.0.0.1 () {36 vars in 680 bytes} [Fri Jun 21 12:18:09 2019] GET /louis => generated 12 bytes in 3 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 95751|app: 0|req: 4/4] 127.0.0.1 () {36 vars in 678 bytes} [Fri Jun 21 12:18:17 2019] GET /test => generated 14 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 95751|app: 0|req: 5/5] 127.0.0.1 () {36 vars in 678 bytes} [Fri Jun 21 12:18:49 2019] GET /naem => generated 232 bytes in 29 msecs (HTTP/1.1 404) 2 headers in 72 bytes (2 switches on core 0)
+[pid: 95750|app: 0|req: 1/6] 127.0.0.1 () {36 vars in 678 bytes} [Fri Jun 21 12:18:53 2019] GET /name => generated 232 bytes in 33 msecs (HTTP/1.1 404) 2 headers in 72 bytes (2 switches on core 0)
+[2019-06-21 12:19:11,603] ERROR in app: Exception on /taskn [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 492, in connect
+    sock = self._connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 520, in _connect
+    socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 22, in add_name
+    rs.hset('name', 'louis', 'a')
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 2674, in hset
+    return self.execute_command('HSET', name, key, value)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 772, in execute_command
+    connection = pool.get_connection(command_name, **options)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 994, in get_connection
+    connection.connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 497, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 8 connecting to redis:6379. nodename nor servname provided, or not known.
+[pid: 95751|app: 0|req: 6/7] 127.0.0.1 () {36 vars in 680 bytes} [Fri Jun 21 12:19:11 2019] GET /taskn => generated 290 bytes in 7 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 95753)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 12:53:15 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:54586 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fe97b502620
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fe97b502620 pid: 97772 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 97772)
+spawned uWSGI worker 1 (pid: 97779, cores: 1)
+spawned uWSGI worker 2 (pid: 97780, cores: 1)
+spawned uWSGI worker 3 (pid: 97781, cores: 1)
+spawned uWSGI worker 4 (pid: 97782, cores: 1)
+spawned uWSGI http 1 (pid: 97783)
+[pid: 97781|app: 0|req: 1/1] 127.0.0.1 () {36 vars in 680 bytes} [Fri Jun 21 12:54:10 2019] GET /taska => generated 18 bytes in 132 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[pid: 97782|app: 0|req: 1/2] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:54:48 2019] GET /taska => generated 18 bytes in 63 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[pid: 97781|app: 0|req: 2/3] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:56:01 2019] GET /taska => generated 18 bytes in 5 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[2019-06-21 12:57:21,291] ERROR in app: Exception on /taskn [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 492, in connect
+    sock = self._connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 520, in _connect
+    socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 22, in add_name
+    rs.hset('name', 'louis', 'a')
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 2674, in hset
+    return self.execute_command('HSET', name, key, value)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 772, in execute_command
+    connection = pool.get_connection(command_name, **options)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 994, in get_connection
+    connection.connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 497, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 8 connecting to redis:6379. nodename nor servname provided, or not known.
+[pid: 97781|app: 0|req: 3/4] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:57:21 2019] GET /taskn => generated 290 bytes in 17 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[2019-06-21 12:57:25,825] ERROR in app: Exception on /taskn [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 492, in connect
+    sock = self._connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 520, in _connect
+    socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 22, in add_name
+    rs.hset('name', 'louis', 'a')
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 2674, in hset
+    return self.execute_command('HSET', name, key, value)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 772, in execute_command
+    connection = pool.get_connection(command_name, **options)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 994, in get_connection
+    connection.connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 497, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 8 connecting to redis:6379. nodename nor servname provided, or not known.
+[pid: 97782|app: 0|req: 2/5] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 12:57:25 2019] GET /taskn => generated 290 bytes in 9 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 97782|app: 0|req: 3/6] 127.0.0.1 () {38 vars in 704 bytes} [Fri Jun 21 12:57:28 2019] GET /taska => generated 18 bytes in 7 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+[2019-06-21 12:57:37,363] ERROR in app: Exception on /taskn [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 492, in connect
+    sock = self._connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 520, in _connect
+    socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 22, in add_name
+    rs.hset('name', 'louis', 'a')
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 2674, in hset
+    return self.execute_command('HSET', name, key, value)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/client.py", line 772, in execute_command
+    connection = pool.get_connection(command_name, **options)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 994, in get_connection
+    connection.connect()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/redis/connection.py", line 497, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 8 connecting to redis:6379. nodename nor servname provided, or not known.
+[pid: 97782|app: 0|req: 4/7] 127.0.0.1 () {38 vars in 709 bytes} [Fri Jun 21 12:57:37 2019] GET /taskn => generated 290 bytes in 3 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 97782|app: 0|req: 5/8] 127.0.0.1 () {38 vars in 703 bytes} [Fri Jun 21 12:57:43 2019] GET /louis => generated 12 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 79 bytes (2 switches on core 0)
+[pid: 97781|app: 0|req: 4/9] 127.0.0.1 () {38 vars in 710 bytes} [Fri Jun 21 12:58:39 2019] GET /taska => generated 18 bytes in 66 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[pid: 97781|app: 0|req: 5/10] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:04:57 2019] GET /taska => generated 18 bytes in 31 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 97783)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:05:46 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55160 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fc8415070a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fc8415070a0 pid: 1103 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1103)
+spawned uWSGI worker 1 (pid: 1110, cores: 1)
+spawned uWSGI worker 2 (pid: 1111, cores: 1)
+spawned uWSGI worker 3 (pid: 1112, cores: 1)
+spawned uWSGI worker 4 (pid: 1113, cores: 1)
+spawned uWSGI http 1 (pid: 1114)
+[2019-06-21 13:05:59,771] ERROR in app: Exception on /taska [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 31, in x_add_y
+    'taskstatus', task_id=task.id
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2080, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2007, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'taskstatus' with values ['task_id']. Did you mean 'task_status' instead?
+[pid: 1113|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:05:59 2019] GET /taska => generated 290 bytes in 72 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 1114)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:07:29 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55182 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f9317702170
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f9317702170 pid: 1480 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1480)
+spawned uWSGI worker 1 (pid: 1487, cores: 1)
+spawned uWSGI worker 2 (pid: 1488, cores: 1)
+spawned uWSGI worker 3 (pid: 1489, cores: 1)
+spawned uWSGI worker 4 (pid: 1490, cores: 1)
+spawned uWSGI http 1 (pid: 1491)
+[pid: 1490|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:07:37 2019] GET /taska => generated 23 bytes in 54 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[pid: 1490|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 694 bytes} [Fri Jun 21 13:08:29 2019] GET / => generated 12 bytes in 3 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 1490|app: 0|req: 3/3] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:08:35 2019] GET /taska => generated 23 bytes in 6 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 1491)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:08:48 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55214 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fae22c09a90
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fae22c09a90 pid: 1768 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1768)
+spawned uWSGI worker 1 (pid: 1775, cores: 1)
+spawned uWSGI worker 2 (pid: 1776, cores: 1)
+spawned uWSGI worker 3 (pid: 1777, cores: 1)
+spawned uWSGI worker 4 (pid: 1778, cores: 1)
+spawned uWSGI http 1 (pid: 1779)
+[pid: 1778|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 704 bytes} [Fri Jun 21 13:11:56 2019] GET /taska => generated 72 bytes in 103 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+[2019-06-21 13:12:22,161] ERROR in app: Exception on /status/e15243ee-b31c-4cc9-81d0-4e50088df0e1 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 41, in task_status
+    return jsonify({'status': task.state, 'task_id': task_id})
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 1778|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 756 bytes} [Fri Jun 21 13:12:22 2019] GET /status/e15243ee-b31c-4cc9-81d0-4e50088df0e1 => generated 290 bytes in 13 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 1778|app: 0|req: 3/3] 127.0.0.1 () {38 vars in 694 bytes} [Fri Jun 21 13:14:26 2019] GET / => generated 12 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 1778|app: 0|req: 4/4] 127.0.0.1 () {36 vars in 680 bytes} [Fri Jun 21 13:14:30 2019] GET /taska => generated 72 bytes in 3 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+[2019-06-21 13:14:42,556] ERROR in app: Exception on /status/0c6961db-e88e-4c25-8583-5c03aeff0c29 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 41, in task_status
+    return jsonify({'status': task.state, 'task_id': task_id})
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 1778|app: 0|req: 5/5] 127.0.0.1 () {36 vars in 756 bytes} [Fri Jun 21 13:14:42 2019] GET /status/0c6961db-e88e-4c25-8583-5c03aeff0c29 => generated 290 bytes in 3 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 1779)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:15:11 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55402 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fed8c601fd0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fed8c601fd0 pid: 3164 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3164)
+spawned uWSGI worker 1 (pid: 3172, cores: 1)
+spawned uWSGI worker 2 (pid: 3173, cores: 1)
+spawned uWSGI worker 3 (pid: 3174, cores: 1)
+spawned uWSGI worker 4 (pid: 3175, cores: 1)
+spawned uWSGI http 1 (pid: 3176)
+[pid: 3175|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:15:21 2019] GET /taska => generated 72 bytes in 62 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[2019-06-21 13:15:33,184] ERROR in app: Exception on /status/90da978c-e88a-418d-ac46-7108a8ad6b6b [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 41, in task_status
+    return jsonify({'status': task.state, 'task_id': task_id})
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 3175|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 756 bytes} [Fri Jun 21 13:15:33 2019] GET /status/90da978c-e88a-418d-ac46-7108a8ad6b6b => generated 290 bytes in 10 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 3176)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:16:08 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55418 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fbfda600b80
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fbfda600b80 pid: 3375 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3375)
+spawned uWSGI worker 1 (pid: 3382, cores: 1)
+spawned uWSGI worker 2 (pid: 3383, cores: 1)
+spawned uWSGI worker 3 (pid: 3384, cores: 1)
+spawned uWSGI worker 4 (pid: 3385, cores: 1)
+spawned uWSGI http 1 (pid: 3386)
+[pid: 3385|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:16:18 2019] GET /taska => generated 72 bytes in 57 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[2019-06-21 13:16:27,012] ERROR in app: Exception on /status/6ffb7ccf-40f9-4419-a01d-d1869339229c [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 41, in task_status
+    return jsonify({'status': task.state, 'task_id': task_id})
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 3385|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 756 bytes} [Fri Jun 21 13:16:27 2019] GET /status/6ffb7ccf-40f9-4419-a01d-d1869339229c => generated 290 bytes in 6 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[2019-06-21 13:16:42,654] ERROR in app: Exception on /status/6ffb7ccf-40f9-4419-a01d-d1869339229c [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 41, in task_status
+    return jsonify({'status': task.state, 'task_id': task_id})
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 3385|app: 0|req: 3/3] 127.0.0.1 () {38 vars in 787 bytes} [Fri Jun 21 13:16:42 2019] GET /status/6ffb7ccf-40f9-4419-a01d-d1869339229c => generated 290 bytes in 2 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 3385|app: 0|req: 4/4] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:27:49 2019] GET /taska => generated 72 bytes in 29 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 3386)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:29:38 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55637 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f855a602900
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f855a602900 pid: 7477 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 7477)
+spawned uWSGI worker 1 (pid: 7482, cores: 1)
+spawned uWSGI worker 2 (pid: 7483, cores: 1)
+spawned uWSGI worker 3 (pid: 7484, cores: 1)
+spawned uWSGI worker 4 (pid: 7485, cores: 1)
+spawned uWSGI http 1 (pid: 7486)
+[pid: 7485|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 711 bytes} [Fri Jun 21 13:29:47 2019] GET /taska => generated 72 bytes in 59 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 7486)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:42:25 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55864 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ffd42e06fb0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7ffd42e06fb0 pid: 10318 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10318)
+spawned uWSGI worker 1 (pid: 10325, cores: 1)
+spawned uWSGI worker 2 (pid: 10326, cores: 1)
+spawned uWSGI worker 3 (pid: 10327, cores: 1)
+spawned uWSGI worker 4 (pid: 10328, cores: 1)
+spawned uWSGI http 1 (pid: 10329)
+[pid: 10328|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 743 bytes} [Fri Jun 21 13:42:30 2019] GET / => generated 12 bytes in 8 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 10328|app: 0|req: 2/2] 127.0.0.1 () {40 vars in 746 bytes} [Fri Jun 21 13:42:34 2019] GET /taska => generated 232 bytes in 23 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 10328|app: 0|req: 3/3] 127.0.0.1 () {38 vars in 726 bytes} [Fri Jun 21 13:42:46 2019] GET /taskadd => generated 72 bytes in 58 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 10329)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:44:19 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55895 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fec1c40a450
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fec1c40a450 pid: 10710 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10710)
+spawned uWSGI worker 1 (pid: 10717, cores: 1)
+spawned uWSGI worker 2 (pid: 10718, cores: 1)
+spawned uWSGI worker 3 (pid: 10719, cores: 1)
+spawned uWSGI worker 4 (pid: 10720, cores: 1)
+spawned uWSGI http 1 (pid: 10721)
+[pid: 10719|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 757 bytes} [Fri Jun 21 13:44:50 2019] GET /taskadd => generated 72 bytes in 126 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 10721)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:47:41 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:55951 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f87dd506a30
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7f87dd506a30 pid: 11345 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 11345)
+spawned uWSGI worker 1 (pid: 11354, cores: 1)
+spawned uWSGI worker 2 (pid: 11355, cores: 1)
+spawned uWSGI worker 3 (pid: 11356, cores: 1)
+spawned uWSGI worker 4 (pid: 11357, cores: 1)
+spawned uWSGI http 1 (pid: 11358)
+[pid: 11356|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 757 bytes} [Fri Jun 21 13:48:08 2019] GET /taskadd => generated 72 bytes in 55 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 11358)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 13:59:46 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:56094 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ff401604890
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7ff401604890 pid: 13820 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 13820)
+spawned uWSGI worker 1 (pid: 13825, cores: 1)
+spawned uWSGI worker 2 (pid: 13826, cores: 1)
+spawned uWSGI worker 3 (pid: 13827, cores: 1)
+spawned uWSGI worker 4 (pid: 13828, cores: 1)
+spawned uWSGI http 1 (pid: 13829)
+[pid: 13828|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 756 bytes} [Fri Jun 21 13:59:56 2019] GET /taskadd => generated 72 bytes in 56 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+[pid: 13828|app: 0|req: 2/2] 127.0.0.1 () {40 vars in 736 bytes} [Fri Jun 21 14:00:13 2019] GET / => generated 12 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+48328dcd-c781-41ae-9e3a-91399319c333
+[2019-06-21 14:00:18,045] ERROR in app: Exception on /status/48328dcd-c781-41ae-9e3a-91399319c333 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 40, in taskstatus
+    print(task.state)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 13828|app: 0|req: 3/3] 127.0.0.1 () {38 vars in 798 bytes} [Fri Jun 21 14:00:18 2019] GET /status/48328dcd-c781-41ae-9e3a-91399319c333 => generated 290 bytes in 13 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+[pid: 13828|app: 0|req: 4/4] 127.0.0.1 () {40 vars in 757 bytes} [Fri Jun 21 14:01:25 2019] GET /taskadd => generated 72 bytes in 3 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc
+[2019-06-21 14:01:35,834] ERROR in app: Exception on /status/celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 40, in taskstatus
+    print(task.state)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 13828|app: 0|req: 5/5] 127.0.0.1 () {38 vars in 832 bytes} [Fri Jun 21 14:01:35 2019] GET /status/celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc => generated 290 bytes in 2 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc
+[2019-06-21 14:01:55,230] ERROR in app: Exception on /status/celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 40, in taskstatus
+    print(task.state)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 13828|app: 0|req: 6/6] 127.0.0.1 () {40 vars in 863 bytes} [Fri Jun 21 14:01:55 2019] GET /status/celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc => generated 290 bytes in 5 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc
+[2019-06-21 14:01:56,376] ERROR in app: Exception on /status/celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 40, in taskstatus
+    print(task.state)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 473, in state
+    return self._get_task_meta()['status']
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/result.py", line 412, in _get_task_meta
+    return self._maybe_set_cache(self.backend.get_task_meta(self.id))
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/backends/base.py", line 386, in get_task_meta
+    meta = self._get_task_meta_for(task_id)
+AttributeError: 'DisabledBackend' object has no attribute '_get_task_meta_for'
+[pid: 13828|app: 0|req: 7/7] 127.0.0.1 () {40 vars in 863 bytes} [Fri Jun 21 14:01:56 2019] GET /status/celery-task-meta-23398aec-2a36-44e8-bd58-0350703efefc => generated 290 bytes in 1 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 13829)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 14:10:19 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:56381 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f8887601d60
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f8887601d60 pid: 15970 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 15970)
+spawned uWSGI worker 1 (pid: 15975, cores: 1)
+spawned uWSGI worker 2 (pid: 15976, cores: 1)
+spawned uWSGI worker 3 (pid: 15977, cores: 1)
+spawned uWSGI worker 4 (pid: 15978, cores: 1)
+spawned uWSGI http 1 (pid: 15979)
+[pid: 15976|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 712 bytes} [Fri Jun 21 14:10:45 2019] GET / => generated 12 bytes in 7 msecs (HTTP/1.1 200) 2 headers in 79 bytes (2 switches on core 0)
+[pid: 15978|app: 0|req: 1/2] 127.0.0.1 () {40 vars in 746 bytes} [Fri Jun 21 14:10:51 2019] GET /taska => generated 232 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 72 bytes (2 switches on core 0)
+[pid: 15978|app: 0|req: 2/3] 127.0.0.1 () {38 vars in 726 bytes} [Fri Jun 21 14:10:53 2019] GET /taskadd => generated 72 bytes in 79 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 15979)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 14:50:19 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:57222 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fb687d055e0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fb687d055e0 pid: 24753 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 24753)
+spawned uWSGI worker 1 (pid: 24758, cores: 1)
+spawned uWSGI worker 2 (pid: 24759, cores: 1)
+spawned uWSGI worker 3 (pid: 24760, cores: 1)
+spawned uWSGI worker 4 (pid: 24761, cores: 1)
+spawned uWSGI http 1 (pid: 24762)
+[2019-06-21 14:50:51,187] ERROR in app: Exception on /runtask [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 76, in long_task
+    task = tasks.long_task.delay(n=n, session=sid)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: long_task() got an unexpected keyword argument 'session'
+[pid: 24761|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 833 bytes} [Fri Jun 21 14:50:51 2019] GET /runtask => generated 290 bytes in 33 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 24761|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 819 bytes} [Fri Jun 21 14:51:06 2019] GET / => generated 12 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+[pid: 24761|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 853 bytes} [Fri Jun 21 14:51:16 2019] GET /taska => generated 232 bytes in 2 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 24760|app: 0|req: 1/4] 127.0.0.1 () {38 vars in 833 bytes} [Fri Jun 21 14:51:17 2019] GET /taskadd => generated 72 bytes in 83 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[pid: 24759|app: 0|req: 1/5] 127.0.0.1 () {38 vars in 819 bytes} [Fri Jun 21 14:52:46 2019] GET / => generated 12 bytes in 11 msecs (HTTP/1.1 200) 2 headers in 79 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 24762)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 14:53:32 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:57314 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ff759502d00
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7ff759502d00 pid: 25615 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 25615)
+spawned uWSGI worker 1 (pid: 25630, cores: 1)
+spawned uWSGI worker 2 (pid: 25631, cores: 1)
+spawned uWSGI worker 3 (pid: 25632, cores: 1)
+spawned uWSGI worker 4 (pid: 25633, cores: 1)
+spawned uWSGI http 1 (pid: 25634)
+[pid: 25630|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 850 bytes} [Fri Jun 21 14:53:38 2019] GET / => generated 55 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 85 bytes (1 switches on core 0)
+[2019-06-21 14:53:57,076] ERROR in app: Exception on /runtask [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 76, in long_task
+    task = tasks.long_task.delay(n=n, session=sid)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: long_task() got an unexpected keyword argument 'session'
+[pid: 25633|app: 0|req: 1/2] 127.0.0.1 () {38 vars in 833 bytes} [Fri Jun 21 14:53:57 2019] GET /runtask => generated 290 bytes in 30 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 25634)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 14:54:46 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:57348 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fbe60e01100
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fbe60e01100 pid: 25920 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 25920)
+spawned uWSGI worker 1 (pid: 25925, cores: 1)
+spawned uWSGI worker 2 (pid: 25927, cores: 1)
+spawned uWSGI worker 3 (pid: 25928, cores: 1)
+spawned uWSGI worker 4 (pid: 25929, cores: 1)
+spawned uWSGI http 1 (pid: 25930)
+8f9a6f93-bccb-42de-ad8c-b4d39a9222ed
+8f9a6f93-bccb-42de-ad8c-b4d39a9222ed
+[2019-06-21 14:54:51,617] ERROR in app: Exception on /runtask [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 78, in long_task
+    task = tasks.long_task.delay(n=n, session=sid)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/celery/app/task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: long_task() got an unexpected keyword argument 'session'
+[pid: 25925|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 863 bytes} [Fri Jun 21 14:54:51 2019] GET /runtask => generated 290 bytes in 22 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 25930)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:24:31 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58092 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ffeb1c010c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 4 seconds on interpreter 0x7ffeb1c010c0 pid: 31652 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 31652)
+spawned uWSGI worker 1 (pid: 31669, cores: 1)
+spawned uWSGI worker 2 (pid: 31670, cores: 1)
+spawned uWSGI worker 3 (pid: 31671, cores: 1)
+spawned uWSGI worker 4 (pid: 31672, cores: 1)
+spawned uWSGI http 1 (pid: 31673)
+[pid: 31671|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 817 bytes} [Fri Jun 21 15:25:20 2019] GET / => generated 55 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 85 bytes (1 switches on core 0)
+[pid: 31672|app: 0|req: 1/2] 127.0.0.1 () {40 vars in 851 bytes} [Fri Jun 21 15:25:28 2019] GET /louis => generated 232 bytes in 12 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 31671|app: 0|req: 2/3] 127.0.0.1 () {38 vars in 832 bytes} [Fri Jun 21 15:25:53 2019] GET /taskadd => generated 72 bytes in 68 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 31673)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:26:24 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58146 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fbc63c0a290
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fbc63c0a290 pid: 32052 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32052)
+spawned uWSGI worker 1 (pid: 32065, cores: 1)
+spawned uWSGI worker 2 (pid: 32066, cores: 1)
+spawned uWSGI worker 3 (pid: 32067, cores: 1)
+spawned uWSGI worker 4 (pid: 32068, cores: 1)
+spawned uWSGI http 1 (pid: 32069)
+[pid: 32067|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:27:11 2019] GET /taskadd => generated 72 bytes in 134 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+#no key
+[2019-06-21 15:27:22,116] ERROR in app: Exception on /task/01103e4e-04de-487e-8759-628c955c3c38 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1835, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1850, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1976, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[pid: 32068|app: 0|req: 1/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:27:22 2019] GET /task/01103e4e-04de-487e-8759-628c955c3c38 => generated 290 bytes in 75 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32069)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:30:47 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58235 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fcc03504580
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fcc03504580 pid: 32935 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32935)
+spawned uWSGI worker 1 (pid: 32944, cores: 1)
+spawned uWSGI worker 2 (pid: 32945, cores: 1)
+spawned uWSGI worker 3 (pid: 32946, cores: 1)
+spawned uWSGI worker 4 (pid: 32947, cores: 1)
+spawned uWSGI http 1 (pid: 32948)
+[pid: 32947|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:30:55 2019] GET /taskadd => generated 72 bytes in 55 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[pid: 32947|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:31:26 2019] GET /task/1eb2a436-5c37-43e0-8e57-9c0b6dba1015 => generated 28 bytes in 4 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[pid: 32947|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:31:29 2019] GET /task/1eb2a436-5c37-43e0-8e57-9c0b6dba1015 => generated 28 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[pid: 32947|app: 0|req: 4/4] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:31:32 2019] GET /task/1eb2a436-5c37-43e0-8e57-9c0b6dba1015 => generated 28 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+[pid: 32947|app: 0|req: 5/5] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:31:36 2019] GET /task/1eb2a436-5c37-43e0-8e57-9c0b6dba1015 => generated 28 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+[pid: 32947|app: 0|req: 6/6] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:31:39 2019] GET /task/1eb2a436-5c37-43e0-8e57-9c0b6dba1015 => generated 28 bytes in 3 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+[pid: 32947|app: 0|req: 7/7] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:31:43 2019] GET /task/1eb2a436-5c37-43e0-8e57-9c0b6dba1015 => generated 28 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32948)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:39:23 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58432 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f8990e06bb0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f8990e06bb0 pid: 34516 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 34516)
+spawned uWSGI worker 1 (pid: 34525, cores: 1)
+spawned uWSGI worker 2 (pid: 34526, cores: 1)
+spawned uWSGI worker 3 (pid: 34527, cores: 1)
+spawned uWSGI worker 4 (pid: 34528, cores: 1)
+spawned uWSGI http 1 (pid: 34529)
+[pid: 34527|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:39:34 2019] GET /taskadd => generated 72 bytes in 56 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[pid: 34527|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:39:49 2019] GET /task/e331d99a-3081-43f0-aa22-2a144dd7cb0f => generated 16 bytes in 5 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+[pid: 34527|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:39:55 2019] GET /task/e331d99a-3081-43f0-aa22-2a144dd7cb0f => generated 16 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+[pid: 34528|app: 0|req: 1/4] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:40:09 2019] GET /task/e331d99a-3081-43f0-aa22-2a144dd7cb0f => generated 28 bytes in 13 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 34529)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:42:19 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58508 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fadc9502ba0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fadc9502ba0 pid: 35116 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 35116)
+spawned uWSGI worker 1 (pid: 35121, cores: 1)
+spawned uWSGI worker 2 (pid: 35122, cores: 1)
+spawned uWSGI worker 3 (pid: 35123, cores: 1)
+spawned uWSGI worker 4 (pid: 35124, cores: 1)
+spawned uWSGI http 1 (pid: 35125)
+[pid: 35124|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:42:36 2019] GET /taskadd => generated 72 bytes in 54 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+[pid: 35124|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:42:50 2019] GET /task/be90fa54-51ab-4d5e-8610-f8bb86bb30f6 => generated 16 bytes in 15 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "be90fa54-51ab-4d5e-8610-f8bb86bb30f6", "date_done": "2019-06-21T07:43:06.988211"}'
+[2019-06-21 15:43:12,337] ERROR in app: Exception on /task/be90fa54-51ab-4d5e-8610-f8bb86bb30f6 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 62, in task_check
+    return jsonify({'result': value})
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 351, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 194, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 81, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+[pid: 35123|app: 0|req: 1/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:43:12 2019] GET /task/be90fa54-51ab-4d5e-8610-f8bb86bb30f6 => generated 290 bytes in 25 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 35125)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:45:27 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58579 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ffe6f700890
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7ffe6f700890 pid: 35715 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 35715)
+spawned uWSGI worker 1 (pid: 35727, cores: 1)
+spawned uWSGI worker 2 (pid: 35728, cores: 1)
+spawned uWSGI worker 3 (pid: 35729, cores: 1)
+spawned uWSGI worker 4 (pid: 35730, cores: 1)
+spawned uWSGI http 1 (pid: 35731)
+[pid: 35729|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 857 bytes} [Fri Jun 21 15:45:56 2019] GET /taskadd => generated 72 bytes in 86 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+null
+[pid: 35729|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:46:11 2019] GET /task/7bef3cb3-ed66-4adb-a5cb-3105ee1e21c8 => generated 18 bytes in 9 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+None
+null
+[pid: 35729|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:46:14 2019] GET /task/7bef3cb3-ed66-4adb-a5cb-3105ee1e21c8 => generated 18 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "7bef3cb3-ed66-4adb-a5cb-3105ee1e21c8", "date_done": "2019-06-21T07:46:26.852362"}'
+[2019-06-21 15:46:56,505] ERROR in app: Exception on /task/7bef3cb3-ed66-4adb-a5cb-3105ee1e21c8 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 63, in task_check
+    value = json.dumps(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+[pid: 35730|app: 0|req: 1/4] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:46:56 2019] GET /task/7bef3cb3-ed66-4adb-a5cb-3105ee1e21c8 => generated 290 bytes in 24 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 35731)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:48:39 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:58706 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fc051e02220
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x7fc051e02220 pid: 36348 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 36348)
+spawned uWSGI worker 1 (pid: 36357, cores: 1)
+spawned uWSGI worker 2 (pid: 36358, cores: 1)
+spawned uWSGI worker 3 (pid: 36359, cores: 1)
+spawned uWSGI worker 4 (pid: 36360, cores: 1)
+spawned uWSGI http 1 (pid: 36361)
+[pid: 36360|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:48:59 2019] GET /taskadd => generated 72 bytes in 94 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+[2019-06-21 15:49:20,917] ERROR in app: Exception on /task/0e706992-70d0-404f-84b5-b80f3acda992 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 63, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36360|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:49:20 2019] GET /task/0e706992-70d0-404f-84b5-b80f3acda992 => generated 290 bytes in 17 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+None
+[2019-06-21 15:49:24,105] ERROR in app: Exception on /task/0e706992-70d0-404f-84b5-b80f3acda992 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 63, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36360|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:49:24 2019] GET /task/0e706992-70d0-404f-84b5-b80f3acda992 => generated 290 bytes in 8 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "0e706992-70d0-404f-84b5-b80f3acda992", "date_done": "2019-06-21T07:49:29.499028"}'
+{'status': 'SUCCESS', 'result': {'x': 10, 'y': 20, 'x+y': 30}, 'traceback': None, 'children': [], 'task_id': '0e706992-70d0-404f-84b5-b80f3acda992', 'date_done': '2019-06-21T07:49:29.499028'}
+[pid: 36360|app: 0|req: 4/4] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:49:35 2019] GET /task/0e706992-70d0-404f-84b5-b80f3acda992 => generated 187 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 72 bytes (2 switches on core 0)
+[pid: 36360|app: 0|req: 5/5] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:50:31 2019] GET /taskadd => generated 72 bytes in 11 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+[2019-06-21 15:50:40,842] ERROR in app: Exception on /task/85820b4a-87cd-454e-b13f-175f87f1b606 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 63, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36360|app: 0|req: 6/6] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:50:40 2019] GET /task/85820b4a-87cd-454e-b13f-175f87f1b606 => generated 290 bytes in 13 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 36361)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:51:40 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59239 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f7f3cf01cc0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f7f3cf01cc0 pid: 36955 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 36955)
+spawned uWSGI worker 1 (pid: 36968, cores: 1)
+spawned uWSGI worker 2 (pid: 36969, cores: 1)
+spawned uWSGI worker 3 (pid: 36970, cores: 1)
+spawned uWSGI worker 4 (pid: 36971, cores: 1)
+spawned uWSGI http 1 (pid: 36972)
+[pid: 36970|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:51:53 2019] GET /taskadd => generated 72 bytes in 57 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+None
+[2019-06-21 15:52:03,885] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36971|app: 0|req: 1/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:52:03 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 27 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+None
+[2019-06-21 15:52:11,556] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36971|app: 0|req: 2/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:11 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 13 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+None
+[2019-06-21 15:52:13,206] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36969|app: 0|req: 1/4] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:13 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 18 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+None
+[2019-06-21 15:52:13,763] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36971|app: 0|req: 3/5] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:13 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 4 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+None
+[2019-06-21 15:52:13,981] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36971|app: 0|req: 4/6] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:13 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 5 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+None
+[2019-06-21 15:52:14,188] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36970|app: 0|req: 2/7] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:14 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 6 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+None
+[2019-06-21 15:52:14,372] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36971|app: 0|req: 5/8] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:14 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 2 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+None
+[2019-06-21 15:52:14,557] ERROR in app: Exception on /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 64, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 36970|app: 0|req: 3/9] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:14 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 290 bytes in 1 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "ab405a6d-8f06-4244-89ac-5cea64c40bb0", "date_done": "2019-06-21T07:52:23.306763"}'
+{'status': 'SUCCESS', 'result': {'x': 10, 'y': 20, 'x+y': 30}, 'traceback': None, 'children': [], 'task_id': 'ab405a6d-8f06-4244-89ac-5cea64c40bb0', 'date_done': '2019-06-21T07:52:23.306763'}
+[pid: 36971|app: 0|req: 6/10] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 15:52:28 2019] GET /task/ab405a6d-8f06-4244-89ac-5cea64c40bb0 => generated 187 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 72 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 36972)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:53:12 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59344 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f924dd05ea0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f924dd05ea0 pid: 37285 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 37285)
+spawned uWSGI worker 1 (pid: 37292, cores: 1)
+spawned uWSGI worker 2 (pid: 37293, cores: 1)
+spawned uWSGI worker 3 (pid: 37294, cores: 1)
+spawned uWSGI worker 4 (pid: 37295, cores: 1)
+spawned uWSGI http 1 (pid: 37296)
+[pid: 37295|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:53:22 2019] GET /taskadd => generated 72 bytes in 64 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+<class 'NoneType'>
+[2019-06-21 15:53:38,901] ERROR in app: Exception on /task/1cb6eee6-7a4c-4df4-8580-6e011a83ea3a [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 65, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 37295|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:53:38 2019] GET /task/1cb6eee6-7a4c-4df4-8580-6e011a83ea3a => generated 290 bytes in 17 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 37296)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:54:57 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59385 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ff7a1e07ec0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7ff7a1e07ec0 pid: 37641 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 37641)
+spawned uWSGI worker 1 (pid: 37648, cores: 1)
+spawned uWSGI worker 2 (pid: 37649, cores: 1)
+spawned uWSGI worker 3 (pid: 37650, cores: 1)
+spawned uWSGI worker 4 (pid: 37651, cores: 1)
+spawned uWSGI http 1 (pid: 37652)
+[pid: 37651|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 863 bytes} [Fri Jun 21 15:55:07 2019] GET /taskadd => generated 72 bytes in 64 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+[2019-06-21 15:55:18,473] ERROR in app: Exception on /task/105ac650-da66-476d-b53f-70c2f3efdd23 [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 63, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 37651|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 900 bytes} [Fri Jun 21 15:55:18 2019] GET /task/105ac650-da66-476d-b53f-70c2f3efdd23 => generated 290 bytes in 15 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+[pid: 37650|app: 0|req: 1/3] 127.0.0.1 () {40 vars in 931 bytes} [Fri Jun 21 15:55:45 2019] GET /task/105ac650-da66-476d-b53f-70c2f3efdd23 => generated 187 bytes in 18 msecs (HTTP/1.1 200) 2 headers in 72 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 37652)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:56:18 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59432 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fcd0e702270
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fcd0e702270 pid: 37931 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 37931)
+spawned uWSGI worker 1 (pid: 37938, cores: 1)
+spawned uWSGI worker 2 (pid: 37939, cores: 1)
+spawned uWSGI worker 3 (pid: 37940, cores: 1)
+spawned uWSGI worker 4 (pid: 37941, cores: 1)
+spawned uWSGI http 1 (pid: 37942)
+[pid: 37941|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:56:26 2019] GET /taskadd => generated 72 bytes in 59 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+[2019-06-21 15:56:38,836] ERROR in app: Exception on /task/fe3fc995-4b7b-4579-835a-5cc233f256fd [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 63, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 37941|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:56:38 2019] GET /task/fe3fc995-4b7b-4579-835a-5cc233f256fd => generated 290 bytes in 12 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 37942)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:57:56 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59473 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fc788602670
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x7fc788602670 pid: 38267 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 38267)
+spawned uWSGI worker 1 (pid: 38274, cores: 1)
+spawned uWSGI worker 2 (pid: 38275, cores: 1)
+spawned uWSGI worker 3 (pid: 38276, cores: 1)
+spawned uWSGI worker 4 (pid: 38277, cores: 1)
+spawned uWSGI http 1 (pid: 38278)
+[pid: 38277|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:58:10 2019] GET /taskadd => generated 72 bytes in 58 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+None
+<class 'NoneType'>
+[2019-06-21 15:58:20,792] ERROR in app: Exception on /task/3105b98f-2d0a-4400-bc25-8c5b7c24faba [GET]
+Traceback (most recent call last):
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/louis/PycharmProjects/celery-demo/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 65, in task_check
+    value = json.loads(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[pid: 38276|app: 0|req: 1/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 15:58:20 2019] GET /task/3105b98f-2d0a-4400-bc25-8c5b7c24faba => generated 290 bytes in 23 msecs (HTTP/1.1 500) 2 headers in 84 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 38278)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 15:59:47 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59517 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fa815f01af0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fa815f01af0 pid: 38633 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 38633)
+spawned uWSGI worker 1 (pid: 38642, cores: 1)
+spawned uWSGI worker 2 (pid: 38643, cores: 1)
+spawned uWSGI worker 3 (pid: 38644, cores: 1)
+spawned uWSGI worker 4 (pid: 38645, cores: 1)
+spawned uWSGI http 1 (pid: 38646)
+[pid: 38645|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 15:59:54 2019] GET /taskadd => generated 72 bytes in 107 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 38645|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 16:00:04 2019] GET /task/85e2d319-42e4-4271-bd39-2e18f292a78e => generated 28 bytes in 6 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "85e2d319-42e4-4271-bd39-2e18f292a78e", "date_done": "2019-06-21T08:00:24.224140"}'
+<class 'bytes'>
+[pid: 38645|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:00:49 2019] GET /task/85e2d319-42e4-4271-bd39-2e18f292a78e => generated 187 bytes in 16 msecs (HTTP/1.1 200) 2 headers in 72 bytes (2 switches on core 0)
+[pid: 38645|app: 0|req: 4/4] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 16:05:39 2019] GET /taskadd => generated 72 bytes in 55 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 38645|app: 0|req: 5/5] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 16:05:50 2019] GET /task/29fa8956-43e8-478d-b947-3bd69693ef5e => generated 28 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 38645|app: 0|req: 6/6] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:05:54 2019] GET /task/29fa8956-43e8-478d-b947-3bd69693ef5e => generated 28 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 38645|app: 0|req: 7/7] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:06:05 2019] GET /task/29fa8956-43e8-478d-b947-3bd69693ef5e => generated 28 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 38645|app: 0|req: 8/8] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:06:07 2019] GET /task/29fa8956-43e8-478d-b947-3bd69693ef5e => generated 28 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "29fa8956-43e8-478d-b947-3bd69693ef5e", "date_done": "2019-06-21T08:06:09.953888"}'
+<class 'bytes'>
+[pid: 38645|app: 0|req: 9/9] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:06:10 2019] GET /task/29fa8956-43e8-478d-b947-3bd69693ef5e => generated 187 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 38644|app: 0|req: 1/10] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 16:15:12 2019] GET /taskadd => generated 72 bytes in 143 msecs (HTTP/1.1 202) 3 headers in 154 bytes (2 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 38645|app: 0|req: 10/11] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 16:15:30 2019] GET /task/ea5b7d19-965c-473f-b3d6-a13f3b959e01 => generated 28 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 71 bytes (2 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "ea5b7d19-965c-473f-b3d6-a13f3b959e01", "date_done": "2019-06-21T08:15:42.950690"}'
+<class 'bytes'>
+[pid: 38644|app: 0|req: 2/12] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:16:01 2019] GET /task/ea5b7d19-965c-473f-b3d6-a13f3b959e01 => generated 187 bytes in 5 msecs (HTTP/1.1 200) 2 headers in 72 bytes (2 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 38646)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 16:17:54 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:60067 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fbd9ce015c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x7fbd9ce015c0 pid: 41994 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 41994)
+spawned uWSGI worker 1 (pid: 42003, cores: 1)
+spawned uWSGI worker 2 (pid: 42004, cores: 1)
+spawned uWSGI worker 3 (pid: 42005, cores: 1)
+spawned uWSGI worker 4 (pid: 42006, cores: 1)
+spawned uWSGI http 1 (pid: 42007)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 42007)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 16:20:03 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.4) on 18 June 2019 06:42:48
+os: Darwin-18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64
+nodename: louisdembp.cn.ibm.com
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/louis/PycharmProjects/celery-demo
+detected binary path: /Users/louis/PycharmProjects/celery-demo/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:60104 (port auto-assigned) fd 3
+Python version: 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21)  [Clang 6.0 (clang-600.0.57)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fd32ff022c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364440 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fd32ff022c0 pid: 42572 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 42572)
+spawned uWSGI worker 1 (pid: 42579, cores: 1)
+spawned uWSGI worker 2 (pid: 42580, cores: 1)
+spawned uWSGI worker 3 (pid: 42581, cores: 1)
+spawned uWSGI worker 4 (pid: 42582, cores: 1)
+spawned uWSGI http 1 (pid: 42583)
+[pid: 42582|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 864 bytes} [Fri Jun 21 16:20:23 2019] GET /taskadd => generated 72 bytes in 97 msecs (HTTP/1.1 202) 3 headers in 154 bytes (1 switches on core 0)
+None
+<class 'NoneType'>
+[pid: 42582|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 901 bytes} [Fri Jun 21 16:20:42 2019] GET /task/722d067d-c5c4-4ff3-ae1a-a77020e2e9f6 => generated 28 bytes in 6 msecs (HTTP/1.1 200) 2 headers in 71 bytes (1 switches on core 0)
+b'{"status": "SUCCESS", "result": {"x": 10, "y": 20, "x+y": 30}, "traceback": null, "children": [], "task_id": "722d067d-c5c4-4ff3-ae1a-a77020e2e9f6", "date_done": "2019-06-21T08:20:53.972174"}'
+<class 'bytes'>
+[pid: 42582|app: 0|req: 3/3] 127.0.0.1 () {40 vars in 932 bytes} [Fri Jun 21 16:21:10 2019] GET /task/722d067d-c5c4-4ff3-ae1a-a77020e2e9f6 => generated 187 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 72 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 42583)
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.

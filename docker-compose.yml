@@ -3,13 +3,13 @@ version: '3'
 services:
 
   app:
-    image: 1056699051/celery-demo:3.3
+    image: 1056699051/celery-demo:3.4
     command: ./run_web.sh
     networks:
       - my-bridge
 
   worker:
-    image: 1056699051/celery-demo:3.3
+    image: 1056699051/celery-demo:3.4
     command: ./run_worker.sh
     networks:
       - my-bridge

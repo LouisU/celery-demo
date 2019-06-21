@@ -1,11 +1,11 @@
 
 from celery import Celery
 from celery.schedules import crontab
-from ned.celery import instance
+from nedcelery.celery import app
 
 
 # 定义定时任务
-instance.conf.beat_schedule = {
+app.conf.beat_schedule = {
     'task1': {
         'task': 'users.tasks.add',
         'schedule': 3.0,

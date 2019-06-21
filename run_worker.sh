@@ -2,4 +2,4 @@
 sleep 5
 
 cd /var/www/celery-demo
-celery -A ned.celery.instance worker -l INFO
+celery -A nedcelery.celery.celery worker -l info
