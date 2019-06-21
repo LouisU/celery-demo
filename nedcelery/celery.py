@@ -3,6 +3,7 @@ from celery import Celery
 from celery.schedules import crontab
 from app import app
 import time
+from importlib import import_module, reload
 
 CELERY_ACCEPT_CONTENT = ['json']
 
@@ -22,6 +23,7 @@ celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 # the configuration object to child processes.
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
+celery.conf.CELERY_IMPORTS = ['task', 'task.all_task']
 celery.conf.update(app.config)
 
 
@@ -66,4 +68,18 @@ celery.conf.update(app.config)
 # celery -A nedcelery.celery worker -l INFO
 # celery -A nedcelery.celery worker -b -l info
 
+def import_string(import_name):
+    import_name = str(import_name).replace(':', '.')
+    modules = import_name.split('.')
+    mod = import_module(modules[0])
+    for comp in modules[1:]:
+        if not hasattr(mod, comp):
+            reload(mod)
+        mod = getattr(mod, comp)
+    return mod
 
+
+@celery.task
+def execute(func, *args, **kwargs):
+    func = import_string(func)
+    return func(*args, **kwargs)
