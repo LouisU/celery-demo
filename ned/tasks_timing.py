@@ -1,11 +1,11 @@
 
 from celery import Celery
 from celery.schedules import crontab
-from .config import celery_app
+from ned.celery import instance
 
 
 # 定义定时任务
-celery_app.conf.beat_schedule = {
+instance.conf.beat_schedule = {
     'task1': {
         'task': 'users.tasks.add',
         'schedule': 3.0,
@@ -16,6 +16,4 @@ celery_app.conf.beat_schedule = {
         'schedule': crontab(minute='*/1'),
         'args': (16, 16)
     },
-
-
 }

@@ -3,10 +3,17 @@ version: '3'
 services:
 
   app:
-    build: .
-    command: "uwsgi --ini ./uwsgi.ini"
+    image: 1056699051/celery-demo:3.3
+    command: ./run_web.sh
     networks:
       - my-bridge
+
+  worker:
+    image: 1056699051/celery-demo:3.3
+    command: ./run_worker.sh
+    networks:
+      - my-bridge
+
 
   nginx:
     image: nginx
@@ -30,6 +37,7 @@ services:
       RABBITMQ_DEFAULT_VHOST: my_vhost
     networks:
       - my-bridge
+
 
 networks:
   my-bridge:
